@@ -45,7 +45,7 @@ public class UserLoginController extends AsyncTask<String, Void, User>{
 	private User loginUser(String userName, String password) throws ClientProtocolException, IOException, URISyntaxException, JSONException{
 		
 		//create URI
-		String uri = "http://" + MainActivity.URI_IP_ADDRESS + "/DatabaseApp/" + userName + "?action=loginUser";
+		String uri = "http://" + MainActivity.URI_IP_ADDRESS + "/DatabaseApp/" + userName + "?action=getUser";
 		
 		//create a StringWriter that places 
 		StringWriter sw = new StringWriter();
