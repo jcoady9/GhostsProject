@@ -15,6 +15,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import ycp.edu.cs496project.mobileApp.MainActivity;
 import ycp.edu.cs496project.mobileApp.json.JSON;
 import ycp.edu.cs496project.mobileApp.model.User;
 
@@ -46,7 +47,7 @@ public class UpdateHighScoreController extends AsyncTask<User, Void, Boolean>{
 	private boolean updateHighscore(User updateUser) throws URISyntaxException, ClientProtocolException, IOException{
 		
 		//Send data to server
-		String uri = "http://" + ycp.edu.cs496project.mobileApp.MainActivity.URI_IP_ADDRESS + "/DatabaseApp/?action=updateUserScore";
+		String uri = "http://" + MainActivity.URI_IP_ADDRESS + "/DatabaseApp/?action=updateUserScore";
 		
 		//create a StringWriter that places 
 		StringWriter sw = new StringWriter();
