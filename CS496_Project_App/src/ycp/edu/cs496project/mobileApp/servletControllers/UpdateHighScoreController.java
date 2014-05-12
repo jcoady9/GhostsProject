@@ -71,6 +71,7 @@ public class UpdateHighScoreController extends AsyncTask<User, Void, Boolean>{
 		//if a OK 200 response is received, return the array of integers sent via JSON
 		if(resp.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
 			HttpEntity entity = resp.getEntity();
+			Log.i("update score controller", JSON.getObjectMapper().readValue(entity.getContent(), boolean.class).toString());
 			return JSON.getObjectMapper().readValue(entity.getContent(), boolean.class);
 		}
 		
