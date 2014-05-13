@@ -196,21 +196,26 @@ public class LoginActivity extends Activity {
 					if(user == null){
 						Toast.makeText(LoginActivity.this, invalid_submission_message, Toast.LENGTH_SHORT).show();
 					}else{
-						Log.i(loginTag, user.getUserName());
-						Toast.makeText(LoginActivity.this, "Welcome back, " + username, Toast.LENGTH_SHORT).show();
-						Intent mainActivityIntent = new Intent(LoginActivity.this, MainActivity.class);
 						
-						Log.i(loginTag, user.getUserName());
-						Log.i(loginTag, user.getUserPassword());
-						
-						str_arr = new ArrayList<String>();
-						str_arr.add(username);
-						str_arr.add(user.getUserPassword());
-						str_arr.add(Integer.toString(user.getUserScore()));
-						
-						//add user info to the main activity via the intent that start MainActivity
-						mainActivityIntent.putStringArrayListExtra(USER_INFO_MESSAGE, str_arr);
-						startActivity(mainActivityIntent);
+						if(user.getUserPassword().equals(password)){
+							Log.i(loginTag, user.getUserName());
+							Toast.makeText(LoginActivity.this, "Welcome back, " + username, Toast.LENGTH_SHORT).show();
+							Intent mainActivityIntent = new Intent(LoginActivity.this, MainActivity.class);
+							
+							Log.i(loginTag, user.getUserName());
+							Log.i(loginTag, user.getUserPassword());
+							
+							str_arr = new ArrayList<String>();
+							str_arr.add(username);
+							str_arr.add(user.getUserPassword());
+							str_arr.add(Integer.toString(user.getUserScore()));
+							
+							//add user info to the main activity via the intent that start MainActivity
+							mainActivityIntent.putStringArrayListExtra(USER_INFO_MESSAGE, str_arr);
+							startActivity(mainActivityIntent);
+						}else{
+							Toast.makeText(LoginActivity.this, invalid_submission_message, Toast.LENGTH_SHORT).show();
+						}
 					}
 				}catch(Exception e){
 					e.printStackTrace();
