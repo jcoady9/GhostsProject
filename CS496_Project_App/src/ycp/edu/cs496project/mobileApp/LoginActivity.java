@@ -196,7 +196,7 @@ public class LoginActivity extends Activity {
 					if(user == null){
 						Toast.makeText(LoginActivity.this, invalid_submission_message, Toast.LENGTH_SHORT).show();
 					}else{
-						
+						//compare password, if passwords equal each other then go to main menu, otherwise print invalid input message
 						if(user.getUserPassword().equals(password)){
 							Log.i(loginTag, user.getUserName());
 							Toast.makeText(LoginActivity.this, "Welcome back, " + username, Toast.LENGTH_SHORT).show();
